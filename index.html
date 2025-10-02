@@ -1,0 +1,766 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rama Meghana P - Software Engineer</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            overflow-x: hidden;
+        }
+
+        /* Navigation */
+        nav {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            padding: 1.5rem 5%;
+            z-index: 1000;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+
+        nav .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        nav .logo {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: #2563eb;
+        }
+
+        nav ul {
+            display: flex;
+            list-style: none;
+            gap: 2rem;
+        }
+
+        nav a {
+            text-decoration: none;
+            color: #333;
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+
+        nav a:hover {
+            color: #2563eb;
+        }
+
+        /* Hero Section */
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            text-align: center;
+            padding: 2rem;
+            margin-top: 0;
+        }
+
+        .hero-content {
+            max-width: 800px;
+            animation: fadeInUp 1s ease;
+        }
+
+        .hero h1 {
+            font-size: 3.5rem;
+            margin-bottom: 1rem;
+            font-weight: 700;
+        }
+
+        .hero .subtitle {
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+            opacity: 0.9;
+        }
+
+        .hero p {
+            font-size: 1.2rem;
+            margin-bottom: 2rem;
+            opacity: 0.85;
+        }
+
+        .hero-buttons {
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .btn {
+            padding: 0.8rem 2rem;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s;
+            display: inline-block;
+        }
+
+        .btn-primary {
+            background: white;
+            color: #667eea;
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+        }
+
+        .btn-secondary {
+            background: transparent;
+            color: white;
+            border: 2px solid white;
+        }
+
+        .btn-secondary:hover {
+            background: white;
+            color: #667eea;
+        }
+
+        /* Section Styling */
+        section {
+            padding: 5rem 5%;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .section-title {
+            font-size: 2.5rem;
+            margin-bottom: 3rem;
+            text-align: center;
+            position: relative;
+            color: #1e293b;
+        }
+
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 60px;
+            height: 4px;
+            background: #2563eb;
+            border-radius: 2px;
+        }
+
+        /* About Section */
+        .about-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 3rem;
+            align-items: center;
+        }
+
+        .about-text h3 {
+            font-size: 1.8rem;
+            margin-bottom: 1rem;
+            color: #2563eb;
+        }
+
+        .about-text p {
+            margin-bottom: 1rem;
+            color: #64748b;
+            font-size: 1.1rem;
+        }
+
+        .stats {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 1.5rem;
+            margin-top: 2rem;
+        }
+
+        .stat-box {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            padding: 1.5rem;
+            border-radius: 10px;
+            color: white;
+            text-align: center;
+        }
+
+        .stat-box h4 {
+            font-size: 2rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .stat-box p {
+            color: rgba(255,255,255,0.9);
+        }
+
+        /* Experience Section */
+        .experience-grid {
+            display: flex;
+            flex-direction: column;
+            gap: 2rem;
+        }
+
+        .experience-card {
+            background: #f8fafc;
+            padding: 2rem;
+            border-radius: 15px;
+            border-left: 4px solid #2563eb;
+            transition: all 0.3s;
+        }
+
+        .experience-card:hover {
+            transform: translateX(10px);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+        }
+
+        .experience-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: start;
+            margin-bottom: 1rem;
+            flex-wrap: wrap;
+        }
+
+        .experience-header h3 {
+            font-size: 1.5rem;
+            color: #1e293b;
+        }
+
+        .experience-header .company {
+            color: #2563eb;
+            font-weight: 600;
+        }
+
+        .experience-header .date {
+            color: #64748b;
+            font-style: italic;
+        }
+
+        .experience-card ul {
+            list-style: none;
+            padding-left: 0;
+        }
+
+        .experience-card li {
+            padding-left: 1.5rem;
+            margin-bottom: 0.5rem;
+            position: relative;
+            color: #475569;
+        }
+
+        .experience-card li::before {
+            content: '▹';
+            position: absolute;
+            left: 0;
+            color: #2563eb;
+            font-weight: bold;
+        }
+
+        /* Projects Section */
+        #projects {
+            background: #f8fafc;
+        }
+
+        .projects-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 2rem;
+        }
+
+        .project-card {
+            background: white;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+            transition: all 0.3s;
+        }
+
+        .project-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.15);
+        }
+
+        .project-header {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            padding: 2rem;
+            color: white;
+        }
+
+        .project-header h3 {
+            font-size: 1.5rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .project-body {
+            padding: 1.5rem;
+        }
+
+        .project-body p {
+            color: #64748b;
+            margin-bottom: 1rem;
+        }
+
+        .tech-stack {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+            margin-top: 1rem;
+        }
+
+        .tech-tag {
+            background: #e0e7ff;
+            color: #3730a3;
+            padding: 0.3rem 0.8rem;
+            border-radius: 20px;
+            font-size: 0.85rem;
+            font-weight: 500;
+        }
+
+        /* Skills Section */
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+        }
+
+        .skill-category {
+            background: white;
+            padding: 2rem;
+            border-radius: 15px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        }
+
+        .skill-category h3 {
+            color: #2563eb;
+            margin-bottom: 1rem;
+            font-size: 1.3rem;
+        }
+
+        .skill-list {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+        }
+
+        .skill-item {
+            background: #f1f5f9;
+            padding: 0.5rem 1rem;
+            border-radius: 8px;
+            font-size: 0.9rem;
+            color: #475569;
+        }
+
+        /* Contact Section */
+        #contact {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            text-align: center;
+        }
+
+        #contact .section-title {
+            color: white;
+        }
+
+        #contact .section-title::after {
+            background: white;
+        }
+
+        .contact-links {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            flex-wrap: wrap;
+            margin-top: 2rem;
+        }
+
+        .contact-link {
+            background: rgba(255,255,255,0.2);
+            padding: 1rem 2rem;
+            border-radius: 10px;
+            color: white;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s;
+            backdrop-filter: blur(10px);
+        }
+
+        .contact-link:hover {
+            background: white;
+            color: #667eea;
+            transform: translateY(-5px);
+        }
+
+        /* Footer */
+        footer {
+            background: #1e293b;
+            color: white;
+            text-align: center;
+            padding: 2rem;
+        }
+
+        /* Animations */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+
+            .hero .subtitle {
+                font-size: 1.2rem;
+            }
+
+            .about-content {
+                grid-template-columns: 1fr;
+            }
+
+            nav ul {
+                gap: 1rem;
+                font-size: 0.9rem;
+            }
+
+            .projects-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .stats {
+                grid-template-columns: 1fr;
+            }
+
+            .experience-header {
+                flex-direction: column;
+            }
+        }
+
+        /* Smooth Scroll */
+        html {
+            scroll-behavior: smooth;
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav>
+        <div class="container">
+            <div class="logo">RM</div>
+            <ul>
+                <li><a href="#home">Home</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="#experience">Experience</a></li>
+                <li><a href="#projects">Projects</a></li>
+                <li><a href="#skills">Skills</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero">
+        <div class="hero-content">
+            <h1>Rama Meghana P</h1>
+            <p class="subtitle">Software Engineer | MS in Computer Science</p>
+            <p>Full-stack engineer specializing in distributed systems, cloud infrastructure, and scalable applications. Currently building reliable systems at Temenos.</p>
+            <div class="hero-buttons">
+                <a href="#contact" class="btn btn-primary">Get In Touch</a>
+                <a href="https://github.com/ramameghana02" class="btn btn-secondary" target="_blank">View GitHub</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about">
+        <h2 class="section-title">About Me</h2>
+        <div class="about-content">
+            <div class="about-text">
+                <h3>Building Scalable Systems</h3>
+                <p>I'm a Software Engineer with a Master's degree in Computer Science from the University of Central Florida, graduating with a perfect 4.0 GPA in May 2025.</p>
+                <p>My expertise spans full-stack development, DevOps/SRE practices, and cloud infrastructure. I'm passionate about building distributed systems that scale, implementing robust CI/CD pipelines, and optimizing performance.</p>
+                <p>Currently, I'm developing automated infrastructure solutions and observability platforms at Temenos, where I focus on improving system reliability and deployment efficiency.</p>
+            </div>
+            <div class="stats">
+                <div class="stat-box">
+                    <h4>4.0</h4>
+                    <p>GPA</p>
+                </div>
+                <div class="stat-box">
+                    <h4>40%</h4>
+                    <p>MTTD Reduction</p>
+                </div>
+                <div class="stat-box">
+                    <h4>80%</h4>
+                    <p>Lead Time Improvement</p>
+                </div>
+                <div class="stat-box">
+                    <h4>3+</h4>
+                    <p>Years Experience</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Experience Section -->
+    <section id="experience">
+        <h2 class="section-title">Experience</h2>
+        <div class="experience-grid">
+            <div class="experience-card">
+                <div class="experience-header">
+                    <div>
+                        <h3>Software Engineer (DevOps / SRE Focus)</h3>
+                        <p class="company">Temenos</p>
+                    </div>
+                    <p class="date">Jun 2025 – Present</p>
+                </div>
+                <ul>
+                    <li>Developed Python services to automate Kubernetes (AKS) upgrades with surge scaling and health gates, improving reliability</li>
+                    <li>Designed reusable Terraform/Bicep modules for networking, compute, and IAM, accelerating deployments and enforcing security</li>
+                    <li>Built distributed observability with Prometheus/Azure Monitor; defined SLIs/SLOs and alerts, reducing MTTD by 40%</li>
+                    <li>Collaborated in cross-functional teams to design scalable services, applying distributed system principles and backend API design</li>
+                </ul>
+            </div>
+
+            <div class="experience-card">
+                <div class="experience-header">
+                    <div>
+                        <h3>Software Engineer Intern (Backend & DevOps)</h3>
+                        <p class="company">Yourok Corp</p>
+                    </div>
+                    <p class="date">Jan 2025 – May 2025</p>
+                </div>
+                <ul>
+                    <li>Shipped CI/CD pipelines (GitHub Actions, Docker) with quality gates, improving release velocity and reliability</li>
+                    <li>Designed and optimized REST APIs (PostgreSQL/Redis), reducing request latency by 25%</li>
+                    <li>Implemented backend features for authentication and data management in microservices</li>
+                </ul>
+            </div>
+
+            <div class="experience-card">
+                <div class="experience-header">
+                    <div>
+                        <h3>Technology Consultant</h3>
+                        <p class="company">PwC India</p>
+                    </div>
+                    <p class="date">Jan 2023 – Dec 2023</p>
+                </div>
+                <ul>
+                    <li>Automated provisioning across AWS, Azure, GCP with Terraform/Ansible, integrated into CI/CD pipelines</li>
+                    <li>Built Jenkins + Kubernetes deployment pipelines; reduced lead time by 80% and standardized rollbacks</li>
+                    <li>Developed backend services (Java, Spring Boot, MySQL) including APIs for enterprise employee and customer data</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <!-- Projects Section -->
+    <section id="projects">
+        <h2 class="section-title">Featured Projects</h2>
+        <div class="projects-grid">
+            <div class="project-card">
+                <div class="project-header">
+                    <h3>E-Commerce Platform</h3>
+                </div>
+                <div class="project-body">
+                    <p>Production-grade microservices platform with Kubernetes orchestration, automated CI/CD, and custom domain configuration.</p>
+                    <p><strong>Impact:</strong> Demonstrated full SDLC skills from design to production deployment on cloud infrastructure.</p>
+                    <div class="tech-stack">
+                        <span class="tech-tag">Node.js</span>
+                        <span class="tech-tag">React</span>
+                        <span class="tech-tag">PostgreSQL</span>
+                        <span class="tech-tag">Kubernetes</span>
+                        <span class="tech-tag">GitHub Actions</span>
+                        <span class="tech-tag">Argo CD</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="project-card">
+                <div class="project-header">
+                    <h3>Multi-Cloud Infrastructure</h3>
+                </div>
+                <div class="project-body">
+                    <p>Unified deployment framework for AWS, Azure, and GCP with 95% code reusability using Terraform modules.</p>
+                    <p><strong>Impact:</strong> Reduced deployment errors by 60% through automated testing and drift detection.</p>
+                    <div class="tech-stack">
+                        <span class="tech-tag">Terraform</span>
+                        <span class="tech-tag">AWS</span>
+                        <span class="tech-tag">Azure</span>
+                        <span class="tech-tag">GCP</span>
+                        <span class="tech-tag">CI/CD</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="project-card">
+                <div class="project-header">
+                    <h3>Full Stack MERN + GenAI</h3>
+                </div>
+                <div class="project-body">
+                    <p>End-to-end web applications using MERN stack with GenAI integration and payment processing.</p>
+                    <p><strong>Features:</strong> AI Content Detector, ChatGPT-powered SaaS, expense tracker, authentication system.</p>
+                    <div class="tech-stack">
+                        <span class="tech-tag">MongoDB</span>
+                        <span class="tech-tag">Express</span>
+                        <span class="tech-tag">React</span>
+                        <span class="tech-tag">Node.js</span>
+                        <span class="tech-tag">OpenAI</span>
+                        <span class="tech-tag">Stripe</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Skills Section -->
+    <section id="skills">
+        <h2 class="section-title">Technical Skills</h2>
+        <div class="skills-grid">
+            <div class="skill-category">
+                <h3>Languages</h3>
+                <div class="skill-list">
+                    <span class="skill-item">Python</span>
+                    <span class="skill-item">Java</span>
+                    <span class="skill-item">C++</span>
+                    <span class="skill-item">JavaScript</span>
+                    <span class="skill-item">TypeScript</span>
+                </div>
+            </div>
+
+            <div class="skill-category">
+                <h3>Frontend</h3>
+                <div class="skill-list">
+                    <span class="skill-item">React</span>
+                    <span class="skill-item">HTML5</span>
+                    <span class="skill-item">CSS3</span>
+                    <span class="skill-item">Bootstrap</span>
+                </div>
+            </div>
+
+            <div class="skill-category">
+                <h3>Backend</h3>
+                <div class="skill-list">
+                    <span class="skill-item">Node.js</span>
+                    <span class="skill-item">Express.js</span>
+                    <span class="skill-item">RESTful APIs</span>
+                    <span class="skill-item">Spring Boot</span>
+                </div>
+            </div>
+
+            <div class="skill-category">
+                <h3>Databases</h3>
+                <div class="skill-list">
+                    <span class="skill-item">MySQL</span>
+                    <span class="skill-item">PostgreSQL</span>
+                    <span class="skill-item">MongoDB</span>
+                    <span class="skill-item">DynamoDB</span>
+                    <span class="skill-item">Redis</span>
+                </div>
+            </div>
+
+            <div class="skill-category">
+                <h3>Cloud & DevOps</h3>
+                <div class="skill-list">
+                    <span class="skill-item">AWS</span>
+                    <span class="skill-item">Azure</span>
+                    <span class="skill-item">GCP</span>
+                    <span class="skill-item">Docker</span>
+                    <span class="skill-item">Kubernetes</span>
+                    <span class="skill-item">Terraform</span>
+                    <span class="skill-item">Ansible</span>
+                    <span class="skill-item">Jenkins</span>
+                    <span class="skill-item">GitHub Actions</span>
+                </div>
+            </div>
+
+            <div class="skill-category">
+                <h3>Monitoring & Testing</h3>
+                <div class="skill-list">
+                    <span class="skill-item">Prometheus</span>
+                    <span class="skill-item">Grafana</span>
+                    <span class="skill-item">CloudWatch</span>
+                    <span class="skill-item">Selenium</span>
+                    <span class="skill-item">JUnit</span>
+                    <span class="skill-item">Postman</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact">
+        <h2 class="section-title">Get In Touch</h2>
+        <p style="font-size: 1.2rem; margin-bottom: 2rem;">I'm currently open to new opportunities and collaborations. Feel free to reach out!</p>
+        <div class="contact-links">
+            <a href="mailto:pramameghana02@gmail.com" class="contact-link">Email Me</a>
+            <a href="https://linkedin.com/in/ramameghana" class="contact-link" target="_blank">LinkedIn</a>
+            <a href="https://github.com/ramameghana02" class="contact-link" target="_blank">GitHub</a>
+    
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2025 Rama Meghana P. Built with passion and code.</p>
+    </footer>
+
+    <script>
+        // Smooth scroll with offset for fixed nav
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    const offset = 80;
+                    const targetPosition = target.offsetTop - offset;
+                    window.scrollTo({
+                        top: targetPosition,
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+
+        // Active nav link on scroll
+        window.addEventListener('scroll', () => {
+            const sections = document.querySelectorAll('section');
+            const navLinks = document.querySelectorAll('nav a');
+            
+            let current = '';
+            sections.forEach(section => {
+                const sectionTop = section.offsetTop;
+                const sectionHeight = section.clientHeight;
+                if (pageYOffset >= (sectionTop - 100)) {
+                    current = section.getAttribute('id');
+                }
+            });
+
+            navLinks.forEach(link => {
+                link.style.color = '#333';
+                if (link.getAttribute('href') === `#${current}`) {
+                    link.style.color = '#2563eb';
+                }
+            });
+        });
+    </script>
+</body>
+</html>
